@@ -45,7 +45,7 @@ function getPokemon(e) {
       console.log(err);
       return (document.querySelector(
         '.pokemonBox',
-      ).innerHTML = `<h1>NOT FOUND</h1>`);
+      ).innerHTML = `<h1>POKEMANS NOT FOUND</h1>`);
     });
 
   e.preventDefault();
