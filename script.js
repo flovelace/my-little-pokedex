@@ -1,5 +1,8 @@
-// Select search field
+// Select search button
 document.querySelector('#search').addEventListener('click', getPokemon);
+
+// Select the lucky button
+document.querySelector('#lucky').addEventListener('click', luckyPokemon);
 
 // function to convert user input to lowercase
 function lowerCaseName(string) {
@@ -48,5 +51,9 @@ function getPokemon(e) {
       ).innerHTML = `<h1>POKEMANS NOT FOUND</h1>`);
     });
 
+  e.preventDefault();
+}
+
+function luckyPokemon(e) {
   e.preventDefault();
 }
