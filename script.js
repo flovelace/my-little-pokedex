@@ -29,13 +29,23 @@ function getPokemon(e) {
           </div>
           <div class="pokemonInfo">
             <h1>${capitaliseFirstLetter(data.name)}</h1>
-            <p>${data.weight}</p>
+            <h2>Base Stats</h2>
+            <p>HP: ${data.stats[0].base_stat}</p>
+            <p>Attack: ${data.stats[1].base_stat}</p>
+            <p>Defence: ${data.stats[2].base_stat}</p>
+            <p>Special Attack: ${data.stats[3].base_stat}</p>
+            <p>Special Defence: ${data.stats[4].base_stat}</p>
+            <p>Speed: ${data.stats[5].base_stat}</p>
+            <p>Weight: ${data.weight}</p>
           </div>
         </div>
       `;
     })
     .catch((err) => {
-      console.log('Pokemon not found!', err);
+      console.log(err);
+      return (document.querySelector(
+        '.pokemonBox',
+      ).innerHTML = `<h1>NOT FOUND</h1>`);
     });
 
   e.preventDefault();
