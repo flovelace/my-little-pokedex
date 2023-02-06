@@ -111,3 +111,39 @@ h2 {
     background: #8f8f8f;
 }
 
+/* Media queries */
+@media (max-width: 640px) {
+
+    .hero-image {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        background-image: url(./img/pokemon-logo-png-0.png);
+        margin-top: 150px;
+        opacity: 0.75;
+        height: 200px;
+        width: 90%;
+        background-repeat: no-repeat;
+        background-attachment: local;
+        background-size: contain;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 3rem;
+        opacity: 0.75;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        opacity: 0.75;
+    }
+
+    }
