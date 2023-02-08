@@ -28,7 +28,7 @@ function getPokemon(e) {
               data.sprites.other.home.front_default
             }" alt="${capitaliseFirstLetter(
         data.name,
-      )}" style="height: 500px; width: 500px;">
+      )}" style="height: 500px; width: 500px; display: flex; justify-content: center;">
           </div>
           <div class="pokemonInfo">
             <h1>${capitaliseFirstLetter(data.name)}</h1>

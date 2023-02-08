@@ -103,6 +103,7 @@ h2 {
         0px 9px 46px 8px hsla(0, 0%, 0%, 0.12),
         0px 11px 15px -7px hsla(0, 0%, 0%, 0.2);
     margin-top: 3rem;
+    margin-bottom: 2rem;
     border: 0;
     border-radius: 5px;
     height: 1.5rem;
@@ -120,6 +121,15 @@ h2 {
 #lucky:hover {
     background: #8f8f8f;
 }
+
+/* Pokemon Display container */
+
+/* .pokemonInfo {
+    background-color: green;
+    height: 30rem;
+    width: 50rem;
+    color: orangered;
+} */
 
 /* Media queries */
 @media (max-width: 640px) {
