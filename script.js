@@ -28,12 +28,12 @@ function getPokemon(e) {
               data.sprites.other.home.front_default
             }" alt="${capitaliseFirstLetter(
         data.name,
-      )}" style="height: 500px; width: 500px; display: flex; justify-content: center;">
+      )}" style="height: 300px; width: 300px;">
           </div>
           <div class="pokemonInfo">
-            <h1>${capitaliseFirstLetter(data.name)}</h1>
-            <h2>Base Stats</h2>
-            <p>HP: ${data.stats[0].base_stat}</p>
+            <h2>${capitaliseFirstLetter(data.name)}</h2>
+            <h3>Base Stats</h3>
+            <p>HP:</p> ${data.stats[0].base_stat}
             <p>Attack: ${data.stats[1].base_stat}</p>
             <p>Defence: ${data.stats[2].base_stat}</p>
             <p>Special Attack: ${data.stats[3].base_stat}</p>
@@ -66,11 +66,11 @@ function luckyPokemon(e) {
               data.sprites.other.home.front_default
             }" alt="${capitaliseFirstLetter(
         data.name,
-      )}" style="height: 500px; width: 500px;">
+      )}" style="height: 300px; width: 300px;">
           </div>
           <div class="pokemonInfo">
-            <h1>${capitaliseFirstLetter(data.name)}</h1>
-            <h2>Base Stats</h2>
+            <h2>${capitaliseFirstLetter(data.name)}</h2>
+            <h3>Base Stats</h3>
             <p>HP: ${data.stats[0].base_stat}</p>
             <p>Attack: ${data.stats[1].base_stat}</p>
             <p>Defence: ${data.stats[2].base_stat}</p>

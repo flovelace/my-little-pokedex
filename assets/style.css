@@ -124,12 +124,24 @@ h2 {
 
 /* Pokemon Display container */
 
-/* .pokemonInfo {
-    background-color: green;
-    height: 30rem;
-    width: 50rem;
-    color: orangered;
-} */
+.pokemonInfo {
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+.pokemonInfo h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.pokemonInfo h3 {
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.pokemonInfo p {
+    font-size: 30px;
+}
 
 /* Media queries */
 @media (max-width: 640px) {
@@ -165,6 +177,16 @@ h2 {
     h2 {
         font-size: 1.5rem;
         opacity: 0.75;
+    }
+
+    .pokemonBox {
+        display: flex;
+        flex-direction: column;
+    }
+
+    img {
+        width: 400px;
+        height: 400px;
     }
 
 }
