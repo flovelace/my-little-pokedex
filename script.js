@@ -23,13 +23,12 @@ function getPokemon(e) {
     .then((response) => response.json())
     .then((data) => {
       document.querySelector('.pokemonBox').innerHTML = `
-          <div>
+        <div class="pokemonContainer">
             <img src="${
               data.sprites.other.home.front_default
             }" alt="${capitaliseFirstLetter(
         data.name,
       )}" style="height: 300px; width: 300px;">
-          </div>
           <div class="pokemonInfo">
             <h2>${capitaliseFirstLetter(data.name)}</h2>
             <h3>Base Stats</h3>
@@ -61,17 +60,16 @@ function luckyPokemon(e) {
     .then((response) => response.json())
     .then((data) => {
       document.querySelector('.pokemonBox').innerHTML = `
-          <div>
+        <div class="pokemonContainer">
             <img src="${
               data.sprites.other.home.front_default
             }" alt="${capitaliseFirstLetter(
         data.name,
       )}" style="height: 300px; width: 300px;">
-          </div>
           <div class="pokemonInfo">
             <h2>${capitaliseFirstLetter(data.name)}</h2>
             <h3>Base Stats</h3>
-            <p>HP: ${data.stats[0].base_stat}</p>
+            <p>HP:</p> ${data.stats[0].base_stat}
             <p>Attack: ${data.stats[1].base_stat}</p>
             <p>Defence: ${data.stats[2].base_stat}</p>
             <p>Special Attack: ${data.stats[3].base_stat}</p>
@@ -81,6 +79,12 @@ function luckyPokemon(e) {
           </div>
         </div>
       `;
+    })
+    .catch((err) => {
+      console.log(err);
+      return (document.querySelector(
+        '.pokemonBox',
+      ).innerHTML = `<h1>ERROR! could not find pokemon</h1>`);
     });
 
   e.preventDefault();
