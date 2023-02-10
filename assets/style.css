@@ -127,8 +127,9 @@ h2 {
 .pokemonContainer {
     background-color: white;
     color: #303030;
-    height: 700px;
-    width: 600px;
+    height: 720px;
+    width: 500px;
+    margin-bottom: 30px;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -154,6 +155,10 @@ h2 {
 
 .pokemonInfo p {
     font-size: 20px;
+}
+
+footer {
+    margin: 50px;
 }
 
 /* Media queries */
