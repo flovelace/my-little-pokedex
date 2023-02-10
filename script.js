@@ -31,7 +31,7 @@ function getPokemon(e) {
       )}" style="height: 300px; width: 300px;">
           <div class="pokemonInfo">
             <h2>${capitaliseFirstLetter(data.name)}</h2>
-            <h3>${data.types[0].type.name}</h3>
+            <span class="badge">${data.types[0].type.name}</span>
             <h3>Base Stats</h3>
             <p>HP:</p> ${data.stats[0].base_stat}
             <p>Attack: ${data.stats[1].base_stat}</p>
@@ -69,7 +69,7 @@ function luckyPokemon(e) {
       )}" style="height: 300px; width: 300px;">
           <div class="pokemonInfo">
             <h2>${capitaliseFirstLetter(data.name)}</h2>
-            <h3>${data.types[0].type.name}</h3>
+            <span class="badge">${data.types[0].type.name}</span>
             <h3>Base Stats</h3>
             <p>HP:</p> ${data.stats[0].base_stat}
             <p>Attack: ${data.stats[1].base_stat}</p>
