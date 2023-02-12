@@ -5,6 +5,7 @@ document.querySelector('#search').addEventListener('click', getPokemon);
 document.querySelector('#lucky').addEventListener('click', luckyPokemon);
 
 const types = document.querySelector('#types');
+const hp = document.querySelector('#hp');
 
 // function to convert user input to lowercase
 function lowerCaseName(string) {
@@ -73,6 +74,16 @@ function luckyPokemon(e) {
   fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber}`)
     .then((response) => response.json())
     .then((data) => {
+      types.innerHTML = '';
+      data.types.forEach((t) => {
+        let newType = document.createElement('span');
+
+        newType.innerHTML = t.type.name;
+        newType.classList.add('badge');
+
+        types.appendChild(newType);
+        console.log('working');
+      });
       document.querySelector('.pokemonBox').innerHTML = `
         <div class="pokemonContainer">
             <img src="${
