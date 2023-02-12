@@ -212,11 +212,18 @@ footer {
     h2 {
         font-size: 1rem;
         opacity: 0.75;
+        text-align: center;
     }
 
     .pokemonBox {
         display: flex;
         flex-direction: column;
+    }
+
+    .pokemonContainer {
+        display: flex;
+        flex-flow: column;
+        width: 350px;
     }
 
     img {
