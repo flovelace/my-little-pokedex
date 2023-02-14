@@ -4,8 +4,15 @@ document.querySelector('#search').addEventListener('click', getPokemon);
 // Select the lucky button
 document.querySelector('#lucky').addEventListener('click', luckyPokemon);
 
+const pokemonTitleElement = document.querySelector('#pokemonTitle');
+const types = document.querySelector('#types');
 const hpElement = document.querySelector('#hp');
-const attack = document.querySelector('#attack');
+const attackElement = document.querySelector('#attack');
+const defenceElement = document.querySelector('#defence');
+const specAttElement = document.querySelector('#specialAttack');
+const specDefElement = document.querySelector('#specialDefence');
+const speedElement = document.querySelector('#speed');
+const weightElement = document.querySelector('#weight');
 
 // function to convert user input to lowercase
 function lowerCaseName(string) {
@@ -25,19 +32,22 @@ function getPokemon(e) {
   fetch(`https://pokeapi.co/api/v2/pokemon/${lowerCasePokemonName}`)
     .then((response) => response.json())
     .then((data) => {
-      // types.innerHTML = '';
-      // data.types.forEach((t) => {
-      //   let newType = document.createElement('span');
+      types.innerHTML = '';
+      data.types.forEach((t) => {
+        let newType = document.createElement('span');
 
-      //   newType.innerHTML = t.type.name;
-      //   newType.classList.add('badge');
+        newType.innerHTML = t.type.name;
+        newType.classList.add('badge');
 
-      //   types.appendChild(newType);
-      //   console.log('working');
-      // });
+        types.appendChild(newType);
+        console.log('working');
+      });
 
       let hp = data.stats[0].base_stat;
       hpElement.innerHTML = `HP: ${hp}`;
+
+      let attack = data.stats[1].base_stat;
+      attackElement.innerHTML = `Attack: ${attack}`;
 
       document.querySelector('.pokemonBox').innerHTML = `
         <div class="pokemonContainer">
@@ -77,16 +87,16 @@ function luckyPokemon(e) {
   fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber}`)
     .then((response) => response.json())
     .then((data) => {
-      types.innerHTML = '';
-      data.types.forEach((t) => {
-        let newType = document.createElement('span');
+      // types.innerHTML = '';
+      // data.types.forEach((t) => {
+      //   let newType = document.createElement('span');
 
-        newType.innerHTML = t.type.name;
-        newType.classList.add('badge');
+      //   newType.innerHTML = t.type.name;
+      //   newType.classList.add('badge');
 
-        types.appendChild(newType);
-        console.log('working');
-      });
+      //   types.appendChild(newType);
+      //   console.log('working');
+      // });
       document.querySelector('.pokemonBox').innerHTML = `
         <div class="pokemonContainer">
             <img src="${
