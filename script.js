@@ -4,7 +4,7 @@ document.querySelector('#search').addEventListener('click', getPokemon);
 // Select the lucky button
 document.querySelector('#lucky').addEventListener('click', luckyPokemon);
 
-const pokemonTitleElement = document.querySelector('#pokemonTitle');
+const pokemonH2Element = document.querySelector('#pokemonTitle');
 const types = document.querySelector('#types');
 const hpElement = document.querySelector('#hp');
 const attackElement = document.querySelector('#attack');
@@ -43,11 +43,26 @@ function getPokemon(e) {
         console.log('working');
       });
 
+      let pokemonH2 = data.name;
+      pokemonH2Element.innerHTML = `${capitaliseFirstLetter(pokemonH2)}`;
+
       let hp = data.stats[0].base_stat;
       hpElement.innerHTML = `HP: ${hp}`;
 
       let attack = data.stats[1].base_stat;
       attackElement.innerHTML = `Attack: ${attack}`;
+
+      let defence = data.stats[2].base_stat;
+      defenceElement.innerHTML = `Defense: ${defence}`;
+
+      let specAtt = data.stats[3].base_stat;
+      specAttElement.innerHTML = `Special Attack: ${specAtt}`;
+
+      let specDef = data.stats[4].base_stat;
+      specDefElement.innerHTML = `Special Defense: ${specDef}`;
+
+      let speed = data.stats[5].base_stat;
+      speedElement.innerHTML = `Speed: ${speed}`;
 
       document.querySelector('.pokemonBox').innerHTML = `
         <div class="pokemonContainer">
