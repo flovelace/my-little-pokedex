@@ -4,6 +4,7 @@ document.querySelector('#search').addEventListener('click', getPokemon);
 // Select the lucky button
 document.querySelector('#lucky').addEventListener('click', luckyPokemon);
 
+const imageElement = document.querySelector('#img');
 const pokemonH2Element = document.querySelector('#pokemonTitle');
 const types = document.querySelector('#types');
 const hpElement = document.querySelector('#hp');
@@ -43,6 +44,11 @@ function getPokemon(e) {
         console.log('working');
       });
 
+      let characterImage = data.sprites.other.home.front_default;
+      imageElement.innerHTML = `<img src="${characterImage}" alt="${capitaliseFirstLetter(
+        data.name,
+      )}" style="height: 300px; width: 300px;">`;
+
       let pokemonH2 = data.name;
       pokemonH2Element.innerHTML = `${capitaliseFirstLetter(pokemonH2)}`;
 
@@ -64,27 +70,30 @@ function getPokemon(e) {
       let speed = data.stats[5].base_stat;
       speedElement.innerHTML = `Speed: ${speed}`;
 
-      document.querySelector('.pokemonBox').innerHTML = `
-        <div class="pokemonContainer">
-            <img src="${
-              data.sprites.other.home.front_default
-            }" alt="${capitaliseFirstLetter(
-        data.name,
-      )}" style="height: 300px; width: 300px;">
-          <div class="pokemonInfo">
-            <h2>${capitaliseFirstLetter(data.name)}</h2>
-            <span class="badge">${data.types[0].type.name}</span>
-            <h3>Base Stats</h3>
-            <p>HP:</p> ${data.stats[0].base_stat}
-            <p>Attack: ${data.stats[1].base_stat}</p>
-            <p>Defence: ${data.stats[2].base_stat}</p>
-            <p>Special Attack: ${data.stats[3].base_stat}</p>
-            <p>Special Defence: ${data.stats[4].base_stat}</p>
-            <p>Speed: ${data.stats[5].base_stat}</p>
-            <p>Weight: ${data.weight}</p>
-          </div>
-        </div>
-      `;
+      let weight = data.weight;
+      weightElement.innerHTML = `Weight: ${weight}`;
+
+      // document.querySelector('.pokemonBox').innerHTML = `
+      //   <div class="pokemonContainer">
+      //       <img src="${
+      //         data.sprites.other.home.front_default
+      //       }" alt="${capitaliseFirstLetter(
+      //   data.name,
+      // )}" style="height: 300px; width: 300px;">
+      //     <div class="pokemonInfo">
+      //       <h2>${capitaliseFirstLetter(data.name)}</h2>
+      //       <span class="badge">${data.types[0].type.name}</span>
+      //       <h3>Base Stats</h3>
+      //       <p>HP:</p> ${data.stats[0].base_stat}
+      //       <p>Attack: ${data.stats[1].base_stat}</p>
+      //       <p>Defence: ${data.stats[2].base_stat}</p>
+      //       <p>Special Attack: ${data.stats[3].base_stat}</p>
+      //       <p>Special Defence: ${data.stats[4].base_stat}</p>
+      //       <p>Speed: ${data.stats[5].base_stat}</p>
+      //       <p>Weight: ${data.weight}</p>
+      //     </div>
+      //   </div>
+      // `;
     })
     .catch((err) => {
       console.log(err);
