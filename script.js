@@ -96,7 +96,7 @@ function luckyPokemon(e) {
             <h2>${capitaliseFirstLetter(data.name)}</h2>
             <span class="badge">${data.types[0].type.name}</span>
             <h3>Base Stats</h3>
-            <p>HP:</p> ${data.stats[0].base_stat}
+            <p>HP: ${data.stats[0].base_stat}</p>
             <p>Attack: ${data.stats[1].base_stat}</p>
             <p>Defence: ${data.stats[2].base_stat}</p>
             <p>Special Attack: ${data.stats[3].base_stat}</p>
