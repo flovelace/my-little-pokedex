@@ -16,19 +16,6 @@ function capitaliseFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function getType() {
-  types.innerHTML = '';
-  data.types.forEach((t) => {
-    let newType = document.createElement('span');
-
-    newType.innerHTML = `test${t.type.name}`;
-    newType.classList.add('badge');
-
-    types.appendChild(newType);
-    console.log(newType);
-  });
-}
-
 // Invoke the function to get the data from the API on click
 function getPokemon(e) {
   const pokemonName = document.querySelector('#pokemonName').value;
@@ -37,6 +24,24 @@ function getPokemon(e) {
   fetch(`https://pokeapi.co/api/v2/pokemon/${lowerCasePokemonName}`)
     .then((response) => response.json())
     .then((data) => {
+      types.innerHTML = '';
+      data.types.forEach((t) => {
+        let newType = document.createElement('span');
+
+        newType.innerHTML = `${t.type.name}`;
+        newType.classList.add('badge');
+
+        types.appendChild(newType);
+      });
+
+      // If the pokemon has no types
+      if (data.types.length === 0) {
+        let newType = document.createElement('span');
+        newType.innerHTML = 'No type';
+        newType.classList.add('badge');
+        types.appendChild(newType);
+      }
+
       document.querySelector('.pokemonBox').innerHTML = `
         <div class="pokemonContainer">
             <img src="${
@@ -47,6 +52,11 @@ function getPokemon(e) {
           <div class="pokemonInfo">
             <h2>${capitaliseFirstLetter(data.name)}</h2>
             <span class="badge">${data.types[0].type.name}</span>
+            ${
+              data.types.length > 1
+                ? `<span class="badge">${data.types[1].type.name}</span>`
+                : ''
+            }
             <h3>Base Stats</h3>
             <p>HP: ${data.stats[0].base_stat}</p>
             <p>Attack: ${data.stats[1].base_stat}</p>
@@ -70,7 +80,7 @@ function getPokemon(e) {
 }
 
 function luckyPokemon(e) {
-  const randomNumber = Math.ceil(Math.random() * 900);
+  const randomNumber = Math.ceil(Math.random() * 898);
 
   fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber}`)
     .then((response) => response.json())
