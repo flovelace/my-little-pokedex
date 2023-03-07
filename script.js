@@ -24,16 +24,6 @@ function getPokemon(e) {
   fetch(`https://pokeapi.co/api/v2/pokemon/${lowerCasePokemonName}`)
     .then((response) => response.json())
     .then((data) => {
-      types.innerHTML = '';
-      data.types.forEach((t) => {
-        let newType = document.createElement('span');
-
-        newType.innerHTML = `${t.type.name}`;
-        newType.classList.add('badge');
-
-        types.appendChild(newType);
-      });
-
       // If the pokemon has no types
       if (data.types.length === 0) {
         let newType = document.createElement('span');
@@ -85,16 +75,6 @@ function luckyPokemon(e) {
   fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber}`)
     .then((response) => response.json())
     .then((data) => {
-      types.innerHTML = '';
-      data.types.forEach((t) => {
-        let newType = document.createElement('span');
-
-        newType.innerHTML = `${t.type.name}`;
-        newType.classList.add('badge');
-
-        types.appendChild(newType);
-      });
-
       // If the pokemon has no types
       if (data.types.length === 0) {
         let newType = document.createElement('span');
